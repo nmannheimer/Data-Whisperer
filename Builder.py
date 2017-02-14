@@ -487,10 +487,10 @@ while True:
     # Parse the user input by checking whether each measure, dimension, and chart type is found in the query
     # Return a Measure, Dimension, Aggregation, and Chart type from the query
     for value in measures:
-        if value in query:
+        if value.title() in query:
             measure = value
     for value in dimensions:
-        if value in query:
+        if value.title() in query:
             dimension = value
     for agg in ['Sum', 'Min', 'Max', 'Average', 'Count']:
         if agg in query:
