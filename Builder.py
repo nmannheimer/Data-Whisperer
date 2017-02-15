@@ -347,6 +347,19 @@ def print_dims_meas(dimensions, measures):
         print dim
     print ""
 
+# Print the dimensions available in the workbook/dataset
+def print_dims(dimensions):
+    print "The data set contains the following dimensions:\n"
+    for dim in dimensions:
+        print dim
+    print ""
+
+# Print the measures available in the workbook/dataset
+def print_meas(measures):
+    print "The data set contains the following measures:\n"
+    for meas in measures:
+        print meas
+    print ""
 
 # Open the .twb file and render the view
 def render(workbook, output):
@@ -478,7 +491,7 @@ while True:
         continue
 
     # Clean up the user input by removing punctuation and capitalizing all words
-    query = query.strip(".").strip("?").strip("!").strip(",").title()
+    query = query.strip(".").strip("?").strip("!").strip(",").strip('\\').title()
     measure = ""
     dimension = ""
     chart = ""
@@ -588,7 +601,7 @@ while True:
             while color == "":
                 # Identify the dimension or measure
                 for value in dimensions + measures:
-                    if value in color_query:
+                    if value.title() in color_query:
                         color = value
                         break
                 # Identify the aggregation
@@ -612,29 +625,32 @@ while True:
                         continue
                 # If we do have a color, detect if it's a dimension or measure and if it's a date, then write to XML
                 if color != "":
-                    if metadata[color.title()] == 'date':
+                    if metadata[color] == 'date':
                         col_date = 1
                     if color in dimensions:
                         field_type = 1
                     else:
                         field_type = 0
-                    color = color.title()
-                    color.replace(" ", "")
                     change_color(color, count, dsource, workbook, col_date, output, field_type, col_agg)
+
         # Offer the user the option to add a field to LOD
         # Currently only dimensions are supported for LOD fields
-        detail = raw_input("Would you like to place a dimension on detail? (Press Enter to skip)\n")
-        if not (detail == "" or detail.title() == "No" or detail.title() == "Exit"):
-            while detail.title() not in dimensions:
-                detail = raw_input("Please select a valid dimension or enter 'Exit' to move on:\n")
-                if detail.title() == 'Exit':
+        detail = ''
+        detail_query = raw_input("Would you like to place a dimension on detail? (Press Enter to skip)\n").title()
+        if not (detail_query == "" or detail_query == "No" or detail_query == "Exit"):
+            while detail == '':
+                if detail_query == 'Exit':
                     break
+                for value in dimensions:
+                    if value.title() in detail_query:
+                        detail = value
+                        break
+                if detail == '':
+                    detail_query = raw_input("Please select a valid dimension or enter 'Exit' to move on:\n").title()
             # Dates are supported for LODs
-            if detail != "" and detail.title() != "Exit":
-                if metadata[detail.title()] == 'date':
+            if detail != '':
+                if metadata[detail] == 'date':
                     det_date = 1
-                detail = detail.title()
-                detail.replace(" ", "")
                 change_detail(detail, count, dsource, workbook, det_date, output)
 
     # Open the modified workbook in Tableau
