@@ -14,16 +14,15 @@ from tkFileDialog import askopenfilename
 # In general - clean and simplify code
 
 # 1) Support for other chart types like maps and scatter plots
-# 2) Expanding Exception handling -- handle the sheet name duplication error
-# 3) Upload to Server using Extract API
-# 4) This is the big one, refactor the dialogue tree to be sheet focused and let you select a sheet to work on
+# 2) Upload to Server using Extract API
+# 3) This is the big one, refactor the dialogue tree to be sheet focused and let you select a sheet to work on
 #        + Modify existing sheets (display a list of existing sheets and choose one)
 #        + Add ability to use swap axis
 #        + Ability to name sheets
-# 5) Multiple dimensions and measures on rows and columns
-# 6) Handle date aggregations on color
-# 7) Explore adding more data sources beyond SQL and Excel
-# 8) Add more aggregation types and sorting
+# 4) Multiple dimensions and measures on rows and columns
+# 5) Handle date aggregations on color
+# 6) Explore adding more data sources beyond SQL and Excel
+# 7) Add more aggregation types and sorting
 
 
 ###
