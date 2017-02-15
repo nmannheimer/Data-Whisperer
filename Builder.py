@@ -22,7 +22,7 @@ from tkFileDialog import askopenfilename
 # 4) Multiple dimensions and measures on rows and columns
 # 5) Handle date aggregations on color
 # 6) Explore adding more data sources beyond SQL and Excel
-# 7) Add more aggregation types and sorting
+# 7) Add more aggregation types and ability to sort results
 
 
 ###
