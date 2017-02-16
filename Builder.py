@@ -23,7 +23,7 @@ from tkFileDialog import askopenfilename
 # 5) Handle date aggregations on color
 # 6) Explore adding more data sources beyond SQL and Excel
 # 7) Add more aggregation types and ability to sort results
-
+# 8) Support for multiple data sources
 
 ###
 # THIS IS WHERE THE FUNCTIONS THAT MODIFY XML ARE
@@ -348,6 +348,7 @@ def print_dims_meas(dimensions, measures):
 
 # Print the dimensions available in the workbook/dataset
 def print_dims(dimensions):
+    print ""
     print "The data set contains the following dimensions:\n"
     for dim in dimensions:
         print dim
@@ -355,6 +356,7 @@ def print_dims(dimensions):
 
 # Print the measures available in the workbook/dataset
 def print_meas(measures):
+    print ""
     print "The data set contains the following measures:\n"
     for meas in measures:
         print meas
@@ -367,6 +369,7 @@ def render(workbook, output):
 
 # Print the list of available inputs into the command line
 def commands():
+    print ""
     print "Commands:\n" \
         "    'Show me profit for each state'/'Let me see average sales by region'/'Profit by segment as an area chart' - Enter a query to render\n" \
         "    Data - Show available Dimensions and Measures\n" \
@@ -378,12 +381,14 @@ def commands():
 
 # Print the list of available aggregations
 def aggregations():
+    print ""
     print "Aggregations:\n" \
         "    'Sum', 'Average', 'Min', 'Max', 'Count'"
 
 
 # Print the list of available aggregations
 def chart_types():
+    print ""
     print "Chart Types:\n" \
         "    'Line', 'Square', 'Gantt Bar', 'Bar', 'Circle', 'Area'"
 
@@ -406,7 +411,7 @@ ______  ___ _____ ___    _    _ _   _ _____ ___________ ___________ ___________
 # load the XML from the workbook and return the key features of the XML
 print "Welcome to Data Whisperer, the Text to Viz CMD Line interface for Tableau!"
 time.sleep(2)
-print "To get started, we'll need to locate a .twb workbook that is connected to a SQL or Excel data source.\n"
+print "To get started, we'll need to locate a .twb workbook that is connected to a SINGLE SQL or Excel data source.\n"
 time.sleep(2)
 print "Let's find a source .twb file..."
 time.sleep(2)
@@ -509,6 +514,7 @@ while True:
             aggregation = agg
             break
     if measure == "" and dimension == "":
+        print ""
         print "Please Enter a valid dimension or measure."
         continue
 
