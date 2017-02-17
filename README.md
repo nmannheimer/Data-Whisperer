@@ -7,7 +7,9 @@ To install Python 2.7 visit https://www.python.org/downloads/
 
 For information on adding the required packages see: https://packaging.python.org/installing/
 
-## Common Issues:
+The .exe version of Data Whisperer was created using
+
+### Common Issues:
 
 1) Some users have encountered issues with the automatic save location setting. To fix this simply enter a desired file location rather than hitting enter for the default Desktop location.
 
