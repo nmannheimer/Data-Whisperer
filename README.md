@@ -7,7 +7,7 @@ To install Python 2.7 visit https://www.python.org/downloads/
 
 For information on adding the required packages see: https://packaging.python.org/installing/
 
-The .exe version of Data Whisperer was created using
+The .exe version of Data Whisperer was created using http://www.pyinstaller.org/
 
 ### Common Issues:
 
