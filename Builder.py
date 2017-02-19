@@ -346,6 +346,7 @@ def print_dims_meas(dimensions, measures):
         print dim
     print ""
 
+
 # Print the dimensions available in the workbook/dataset
 def print_dims(dimensions):
     print ""
@@ -353,6 +354,7 @@ def print_dims(dimensions):
     for dim in dimensions:
         print dim
     print ""
+
 
 # Print the measures available in the workbook/dataset
 def print_meas(measures):
@@ -362,6 +364,7 @@ def print_meas(measures):
         print meas
     print ""
 
+
 # Open the .twb file and render the view
 def render(workbook, output):
     os.system('start ' + '{0}{1}.twb'.format(output, workbook))
@@ -369,15 +372,16 @@ def render(workbook, output):
 
 # Print the list of available inputs into the command line
 def commands():
-    print ""
     print "Commands:\n" \
         "    'Show me profit for each state'/'Let me see average sales by region'/'Profit by segment as an area chart' - Enter a query to render\n" \
         "    Data - Show available Dimensions and Measures\n" \
+        "    Dimensions - Show available Dimensions\n" \
+        "    Measures - Show available Measures\n" \
         "    Commands or Help - Show available Commands\n" \
         "    Aggregations - Show available measure aggregations\n" \
         "    Charts - Show available chart types\n" \
         "    Exit - Leave Data Whisperer\n"
-
+    print ""
 
 # Print the list of available aggregations
 def aggregations():
@@ -477,6 +481,16 @@ while True:
         print_dims_meas(dimensions, measures)
         continue
 
+    # Print the available measures in the workbook
+    if query.title() == 'Measures':
+        print_meas(measures)
+        continue
+
+    # Print the available dimensions in the workbook
+    if query.title() == 'Dimensions':
+        print_dims(dimensions)
+        continue
+
     # Re-Print the available commands for Data Whisperer
     if count == 0 and (query.title() == 'Commands' or query.title() == 'Help'):
         continue
@@ -569,22 +583,9 @@ while True:
     row_column(aggregation, measure, dimension, root, tree, count, dsource, workbook, date, output, cont_disc, date_agg, metadata)
     change_mark(chart, root, tree, count, workbook, output)
 
-    # If there is a dimension field in the query, the user chooses how they want to orient the view
-    if dimension != "":
-        swap = ''
-        while any(angle not in swap for angle in ['Columns', 'Column', 'Rows', 'Row']):
-            swap = raw_input("Would you like the dimensional field, " + dimension + ", to be on 'Rows' or 'Columns'?\n").title()
-            if 'Columns' in swap or 'Column' in swap:
-                # Do Nothing
-                break
-            elif 'Rows' in swap or 'Row' in swap:
-                # Swap the axes to put the dimension on Rows
-                swap_axis(workbook, output, count)
-                break
-            elif 'No' in swap or 'Exit' in swap:
-                break
-            else:
-                continue
+    # If there is a dimension field in the query, dates will be put on columns and other dimensions on rows
+    if dimension != "" and date == 0:
+        swap_axis(workbook, output, count)
 
     # Offer the user the option to add a dimension or aggregate measure to color
     # We also need to again test for dates, which require special aggregation
@@ -596,7 +597,7 @@ while True:
     # This section will handle a dimension or measure being placed on color, cleaning and parsing the input
     if measure != "" or dimension != "":
         # Take a new input for visualization color and clean it up
-        color_query = raw_input("Would you like to place a dimension or measure on color? (Press Enter to skip)\n")
+        color_query = raw_input("Select a dimension or measure to place on color. (Press Enter to leave color empty)\n")
         color_query = color_query.strip(".").strip("?").strip("!").strip(",").title()
         # Move on if there is no query or if the user enters 'No' or 'Exit'
         if color_query == "" or color_query == "No" or color_query == 'Exit':
@@ -641,7 +642,7 @@ while True:
         # Offer the user the option to add a field to LOD
         # Currently only dimensions are supported for LOD fields
         detail = ''
-        detail_query = raw_input("Would you like to place a dimension on detail? (Press Enter to skip)\n").title()
+        detail_query = raw_input("Select a dimension to place on detail. (Press Enter to leave dimension empty)\n").title()
         if not (detail_query == "" or detail_query == "No" or detail_query == "Exit"):
             while detail == '':
                 if detail_query == 'Exit':
