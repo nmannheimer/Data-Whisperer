@@ -63,6 +63,9 @@ def load_data(source):
         if source.attrib['name'] != 'Parameters':
             dsource = source.attrib['name']
 
+    dimensions.sort(key = lambda s: len(s))
+    measures.sort(key = lambda s: len(s))
+
     return root, tree, dimensions, measures, metadata, dsource
 
 
@@ -337,6 +340,8 @@ def swap_axis(workbook, output, count):
 
 # Print the measures and dimensions available in the workbook/dataset
 def print_dims_meas(dimensions, measures):
+    dimensions.sort()
+    measures.sort()
     print "The data set contains the following measures:\n"
     for meas in measures:
         print meas
@@ -594,6 +599,8 @@ while True:
     color_query = ""
     color = ""
     col_agg = 'Sum'
+    dims_meas = dimensions + measures
+    dims_meas.sort(key = lambda s: len(s))
     # This section will handle a dimension or measure being placed on color, cleaning and parsing the input
     if measure != "" or dimension != "":
         # Take a new input for visualization color and clean it up
@@ -606,10 +613,9 @@ while True:
         else:
             while color == "":
                 # Identify the dimension or measure
-                for value in dimensions + measures:
+                for value in dims_meas:
                     if value.title() in color_query:
                         color = value
-                        break
                 # Identify the aggregation
                 for agg in ['Sum', 'Min', 'Max', 'Average', 'Count']:
                     if agg in color_query:
@@ -650,7 +656,6 @@ while True:
                 for value in dimensions:
                     if value.title() in detail_query:
                         detail = value
-                        break
                 if detail == '':
                     detail_query = raw_input("Please select a valid dimension or enter 'Exit' to move on:\n").title()
             # Dates are supported for LODs
