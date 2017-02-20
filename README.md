@@ -1,4 +1,4 @@
-# Data-Whisperer README
+# DataWhisperer README
 A NLP visualization builder for Tableau Desktop.
 
 Requires Python 2.7 and the xml and tkFileDialog packages as well as the Personal Edition of Tableau Desktop for Excel connections or the Professional Edition for Excel and SQL connections. View the DataWhispererExample gif to see DataWhisperer in action!
