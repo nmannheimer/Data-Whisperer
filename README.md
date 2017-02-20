@@ -21,7 +21,7 @@ The .exe version of Data Whisperer was created using http://www.pyinstaller.org/
 
 5) Run a query to begin building visualizations! Queries can include 'Show me sales by region', 'Lets see average profit by order date', or 'Show me sales by sub-category as a gantt bar'.
 
-6) Some features such as multiple dimensions and measures on rows and columns, maps and scatter plots, sorting, and calculations are not yet availible, but may be added in future releases.
+6) Some features such as multiple dimensions and measures on rows and columns, maps and scatter plots, sorting, and calculations are not yet availible, but may be added in future releases. Support for Tableau Data Extracts is also planned.
 
 ### Common Issues:
 
@@ -29,8 +29,8 @@ The .exe version of Data Whisperer was created using http://www.pyinstaller.org/
 
 2) You will need to reconnect the sample workbook to the sample data source after downloading it.
 
-3) Data Whisperer is only tested on Excel and SQL sources. Other sources may be functional but this is not guarenteed.
+3) Data Whisperer is only tested on Excel and SQL Server sources.
 
 4) Data Whisperer is designed to be used with only workbooks that have a connection to a single data source.
 
-5) The current query system does not handle more complex visualizations like maps, scatter plots, or creating calculations though these features are planned for future releases.
+5) The current query system does not handle more complex visualizations like maps, scatter plots, sorting, or creating calculations though these features are planned for future releases. Support for Tableau Data Extracts is also planned.
