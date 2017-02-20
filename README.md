@@ -13,7 +13,7 @@ The .exe version of Data Whisperer was created using http://www.pyinstaller.org/
 
 1) Open Tableau Desktop and connect to an Excel or SQL Server data source then save the workbook as a .twb.
 
-2) Start Python and run DataWhisperer.py
+2) If Python is on your system path simply set you directory in cmd to the location of of DataWhisperer.py and run 'python DataWhisperer.py'. Otherwise include the full file path location for DataWhisperer.py when running python.
 
 3) Follow the prompts to select the source workbook. The file selection prompt may be minimized in the task bar as an iPython process.
 
