@@ -13,6 +13,8 @@ from tkFileDialog import askopenfilename
 
 # In general - clean and simplify code
 
+# Major - Create a grammar to handle complex queries
+
 # 1) Support for other chart types like maps and scatter plots
 # 2) Upload to Server using Extract API
 # 3) This is the big one, refactor the dialogue tree to be sheet focused and let you select a sheet to work on
