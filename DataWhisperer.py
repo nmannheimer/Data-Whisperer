@@ -13,7 +13,7 @@ from tkFileDialog import askopenfilename
 
 # In general - clean and simplify code
 
-# Major - Create a grammar to handle complex queries
+# Create Grammar to open the door to more complex filtering and multi-pill queries
 
 # 1) Support for other chart types like maps and scatter plots
 # 2) Upload to Server using Extract API
