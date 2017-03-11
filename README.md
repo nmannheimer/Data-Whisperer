@@ -1,7 +1,7 @@
-# Data-Whisperer
-A NLP visualization builder for Tableau Desktop.
+# DataWhisperer README
+An NLP text query visualization builder for Tableau Desktop.
 
-Requires Python 2.7 and the xml and tkFileDialog packages as well as the Personal Edition of Tableau Desktop for Excel connections or the Professional Edition for Excel and SQL connections.
+The Python version requires Python 2.7 and the xml and tkFileDialog packages as well as the Personal Edition of Tableau Desktop for Excel connections or the Professional Edition for Excel and SQL Server connections. View the DataWhispererExample gif to see DataWhisperer in action!
 
 To install Python 2.7 visit https://www.python.org/downloads/
 
@@ -11,9 +11,9 @@ The .exe version of Data Whisperer was created using http://www.pyinstaller.org/
 
 ### Python Instructions:
 
-1) Open Tableau Desktop and connect to an Excel or SQL Server data source then save the workbook as a .twb.
+1) Open Tableau Desktop and connect to an SINGLE Excel or SQL Server data source then save the workbook as a .twb.
 
-2) Start Python and run DataWhisperer.py
+2) If Python is on your system path simply set you directory in cmd to the location of of DataWhisperer.py and run 'python DataWhisperer.py'. Otherwise include the full file path location for DataWhisperer.py when running python.
 
 3) Follow the prompts to select the source workbook. The file selection prompt may be minimized in the task bar as an iPython process.
 
@@ -21,7 +21,7 @@ The .exe version of Data Whisperer was created using http://www.pyinstaller.org/
 
 5) Run a query to begin building visualizations! Queries can include 'Show me sales by region', 'Lets see average profit by order date', or 'Show me sales by sub-category as a gantt bar'.
 
-6) Some features such as multiple dimensions and measures on rows and columns, maps and scatter plots, sorting, and calculations are not yet availible, but may be added in future releases.
+6) Some features such as multiple dimensions and measures on rows and columns, maps and scatter plots, sorting, and calculations are not yet availible, but may be added in future releases. Support for Tableau Data Extracts is also planned.
 
 ### Common Issues:
 
@@ -29,8 +29,8 @@ The .exe version of Data Whisperer was created using http://www.pyinstaller.org/
 
 2) You will need to reconnect the sample workbook to the sample data source after downloading it.
 
-3) Data Whisperer is only tested on Excel and SQL sources. Other sources may be functional but this is not guarenteed.
+3) Data Whisperer is only tested on Excel and SQL Server sources.
 
 4) Data Whisperer is designed to be used with only workbooks that have a connection to a single data source.
 
-5) The current query system does not handle more complex visualizations like maps, scatter plots, or creating calculations though these features are planned for future releases.
+5) The current query system does not handle more complex visualizations like maps, scatter plots, sorting, or creating calculations though these features are planned for future releases. Support for Tableau Data Extracts is also planned.
