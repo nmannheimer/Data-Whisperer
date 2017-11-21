@@ -1,4 +1,7 @@
 # DataWhisperer README
+
+UPDATE --- Data Whisperer is now available for Python 3.x and modified for the XML schema changes in Tableau 10.4. The compiled code will be added soon.
+
 An NLP text query visualization builder for Tableau Desktop.
 
 The Python version requires Python 2.7 and the xml and tkFileDialog packages as well as the Personal Edition of Tableau Desktop for Excel connections or the Professional Edition for Excel and SQL Server connections. View the DataWhispererExample gif to see DataWhisperer in action!
